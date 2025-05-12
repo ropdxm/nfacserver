@@ -191,7 +191,9 @@ app.get('/', async (req, res) => {
 //     console.error(err.stack);
 //     res.status(500).json({ error: 'Server error ?????' });
 // });
-
+app.get("/a", (req, res) => {
+    res.json({"Hello": "yopta"});
+});
 // Get a specific song by ID
 app.get('/api/songs/:id', (req, res) => {
     const song = songs.find(s => s.id === parseInt(req.params.id));

@@ -192,7 +192,7 @@ app.get('/', async (req, res) => {
 //     res.status(500).json({ error: 'Server error ?????' });
 // });
 app.get("/a", (req, res) => {
-    res.json({"Hello": "yopta"});
+    res.send("hello yopta");
 });
 // Get a specific song by ID
 app.get('/api/songs/:id', (req, res) => {

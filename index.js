@@ -14,28 +14,28 @@ const PORT = 8000;
 //   'http://localhost:3000' // For local development
 // ];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // Allow requests with no origin (like mobile apps or curl requests)
+//     if (!origin) return callback(null, true);
     
-    callback(null, true);    
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  preflightContinue: true
-}));
-
+//     callback(null, true);    
+//   },
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true,
+//   preflightContinue: true
+// }));
+app.use(cors());
 // Handle preflight requests
-router.options('/', async (req, res) => {
+// router.options('/', async (req, res) => {
 
-  res.set("Access-Control-Allow-Origin", "*");
-  res.set("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization, authorizationToken");
+//   res.set("Access-Control-Allow-Origin", "*");
+//   res.set("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+//   res.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization, authorizationToken");
 
-  return res.status(OK);
-});
+//   return res.status(OK);
+// });
 
 
 app.use(bodyParser.json());
@@ -187,10 +187,6 @@ app.get('/', async (req, res) => {
     }
 });
 
-// app.use((err, req, res, next) => {
-//     console.error(err.stack);
-//     res.status(500).json({ error: 'Server error ?????' });
-// });
 app.get("/a", (req, res) => {
     res.send("hello yopta");
 });
